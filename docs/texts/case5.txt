@@ -1,0 +1,17 @@
+Task: fetch one crack box and one sugar box and put them on the beige table
+
+(1) [Go to, beige_table](success) 
+(2) [Pick, cracker_box](fail) 
+(3) [Go to, cracker_box](success) 
+(4) [Pick, cracker_box](success) 
+(5) [Go to, beige_table](success) 
+(6) [Put, cracker_box, beige_table](success) 
+(7) [Go to, brown_table](success) 
+(8) [Put, sugar_box, brown_table](fail) 
+(9) [Go to, beige_table](success) 
+(10) [Put, sugar_box, beige_table](fail) 
+(11) [Go to, sugar_box](success) 
+(12) [Pick, sugar_box](success) 
+(13) [Go to, beige_table](success) 
+(14) [Put, sugar_box, beige_table](success) 
+(15) [End](success)

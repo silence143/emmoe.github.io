@@ -1,0 +1,91 @@
+Task: put the green_can on the brown_table to the fridge
+
+#Round1
+Analysis: According to my final task, I need to go to the green_can first.
+Subtask: [Go to, green_can]
+Inventory: None
+Feedback: None
+
+#Round2
+Analysis: I successfully arrived the green_can and I should pick it next
+Subtask: [Pick, green_can]
+Inventory: green_can
+Feedback: None
+
+#Round3
+Analysis: I successfully picked the green_can, so according to my final task, I should go to the fridge to put it down.
+Subtask: [Go to, fridge]
+Inventory: green_can
+Feedback: None
+
+#Round4
+Analysis: I successfully arrived the fridge and I should put the green_can into it next
+Subtask: [Put, green_can, fridge]
+Inventory: green_can
+Feedback: Unable to put, the fridge is closed, you should open it first
+
+#Round5
+Analysis: I failed to put the green_can into the fridge, since the fridge is closed, so I should open the fridge first
+Subtask: [Open, fridge]
+Inventory: green_can
+Feedback: Unable to open, the hand is full
+
+#Round6
+Analysis: I failed to open the fridge because my hand is full, so I should put the green_can on the brown_table first
+Subtask: [Go to, brown_table]
+Inventory: green_can
+Feedback: None
+
+#Round7
+Analysis: I successfully arrive the brown_table and I should put the green_can on it
+Subtask: [Put, green_can, brown_table]
+Inventory: None
+Feedback: None
+
+#Round8
+Analysis: I successfully put the green_can on the brown_table, so I should go to the fridge next
+Subtask: [Go to, fridge]
+Inventory: None
+Feedback: None
+
+#Round9
+Analysis: I successfully arrived the fridge and I should open it next
+Subtask: [Open, fridge]
+Inventory: None
+Feedback: None
+
+#Round10
+Analysis: I successfully open the fridge and find the green_can, so I should go to the green_can.
+Subtask: [Go to, green_can]
+Inventory: None
+Feedback: None
+
+#Round11
+Analysis: I successfully arrive the green_can and find it, so I should pick it.
+Subtask: [Pick, green_can]
+Inventory: green_can
+Feedback: None
+
+#Round12
+Analysis: I successfully picked the green_can, so according to my final task, I should go to the fridge to put it down.
+Subtask: [Go to, fridge]
+Inventory: green_can
+Feedback: None
+
+#Round13
+Analysis: I successfully arrived the fridge and I should put the green_can into it next
+Subtask: [Put, green_can, fridge]
+Inventory: None
+Feedback: None
+
+#Round14
+Analysis: I successfully put the green_can into the fridge, so I should close the fridge next
+Subtask: [Close, fridge]
+Inventory: None
+Feedback: None\n
+
+#Round15
+Analysis: According to the historical execution and final task, I have finally finished the task and it's time to end
+Subtask: [End]
+Inventory: None
+Feedback: None

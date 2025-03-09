@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="EMMOE: A Comprehensive Benchmark for Embodied Mobile Manipulation in Open Environments">
+  <meta name="keywords" content="Embodied AI, Benchmark, Mobile Manipulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMMOE: A Comprehensive Benchmark for Embodied Mobile Manipulation in Open Environments</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <!-- <link rel="icon" href="./images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- headline -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">EMMOE: A Comprehensive Benchmark for Embodied Mobile Manipulation
+              in Open Environments</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://silence143.github.io" target="_blank">Dongping Li<sup>1,2</sup><sup>*†</sup>
+                </a>,
+              </span>
+              <span class="author-block">
+                Tielong Cai<sup>1</sup><sup>*</sup>,
+              </span>
+              <span class="author-block">
+                Tianci Tang<sup>1</sup><sup>*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://rese1f.github.io/" target="_blank">Wenhao Chai<sup>3</sup></a>,
+              </span>
+              <br>
+              <span class="author-block">
+                <a href="https://krdc.web.illinois.edu/" target="_blank">Katherine Rose Driggs-Campbell<sup>2</sup></a>,
+              </span>
+              <span class="author-block">
+                <a href="https://cvnext.github.io/" target="_blank">Gaoang Wang<sup>1</sup></a>
+              </span>
+            </div>
+
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Zhejiang University</span>
+              <span class="author-block"><sup>2</sup>University of Illinois Urbana-Champaign</span>
+              <span class="author-block"><sup>3</sup>University of Washington</span>
+              <br>
+              <p class="is-size-6"><sup>*</sup>Equal Contribution <sup>†</sup>Project Lead</p>
+            </div>
+
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://opfilter.github.io/" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://opfilter.github.io/" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/silence143/EMMOE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Model Link. -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/collections/Dongping-Li/emmoe-dataset-and-model-67c6b04da2b83b08ec273ef2"
+                    target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face"
+                        style="width: 20px; height: 18px; margin-right: 5px;">
+                    </span>
+                    <span>Model</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/Dongping-Li/EMMOE-100-trainset" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face"
+                        style="width: 20px; height: 18px; margin-right: 5px;">
+                    </span>
+                    <span>Data</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo and Abstract -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Full Video</h2>
+          <div class="publication-video">
+            <iframe width="560" height="315" src="https://www.youtube.com" title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              <b>Problem:</b> Developing autonomous home robots controlled by natural language has long been a pursuit
+              of human. While
+              advancements in large language models (LLMs) and embodied intelligence make this goal closer, several
+              challenges persist: the lack of a unified benchmark for more complex robot tasks, limited evaluation
+              methods and metrics, data incompatibility between LLMs and mobile manipulation trajectories.
+              <br>
+              <b>EMMOE:</b> To address these issues, we introduce Embodied Mobile Manipulation in Open Environments
+              (EMMOE), which requires
+              agents to interpret user instructions and execute long-horizon everyday tasks in continuous space. EMMOE
+              seamlessly integrates high-level and low-level embodied tasks into a unified framework, along with three
+              new metrics for more diverse assessment. Additionally, we collect EMMOE-100, which features in various
+              task attributes, detailed process annotations, re-plans after failures, and two sub-datasets for LLM
+              training.
+              Furthermore, we design HomieBot, a sophisticated agent system consists of LLM with Direct Preference
+              Optimization (DPO), light weighted navigation and manipulation models, and multiple error detection
+              mechanisms. Finally, we demonstrate HomieBot's performance and the evaluation of different models and
+              policies.
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- Benchmark -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Main Title -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">EMMOE Benchmark</h2>
+        </div>
+      </div>
+
+      <!-- Subsections -->
+      <div class="content">
+        <h3 class="title is-4">Problem</h3>
+        <p>tbd</p>
+
+        <h3 class="title is-4">EMMOE-100</h3>
+        <p>tbd</p>
+        <figure>
+          <img src="images/task.png" class="interpolation-image" alt="Interpolate start reference image"
+            style="width: 70%; height: auto;" />
+          <figcaption style="margin-top: 10px; font-size: 14px; color: #555;">
+            <b>Task example of EMMOE-100.</b> A key feature of EMMOE-100
+            is the emphasis on the reasoning process and interleaved execution. In the shown task, the agent must check
+            the fridge first. Otherwise, even if the agent finally gets a banana from the kitchen, it will not be
+            considered as a success.
+          </figcaption>
+        </figure>
+
+        <h3 class="title is-4">New Metrics</h3>
+        <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+          </script>
+        <p>
+          <b>Task Progress</b> To better measure the task execution process and the interrelations among subtasks, we
+          propose Task Progress
+          (TP), which is calculated as follows:
+        </p>
+        <p style="text-align: center;">
+          \( TP = \max_{k_i \in K_T} \left( \frac{\text{len}(k_i^{\text{check}})}{\text{len}(k_i)} \right) \)
+        </p>
+        <p>
+          A keypath is defined as an ordered node set of all necessary subtasks required to complete a task,
+          k<sub>i</sub> is the i-th keypath in the keypath set K<sub>T</sub> for task T. Each task is assigned with
+          several keypaths, representing different ways to complete the task. We strictly match the execution trajectory
+          with the subtask nodes in k<sub>i</sub> in sequential order. Once the node in k<sub>i</sub> is successfully
+          matched, it will be added to another ordered set k<sub>i</sub><sup>check</sup>, then the ratio between the
+          length of k<sub>i</sub><sup>check</sup> and the length of k<sub>i</sub> will be recorded. This process will be
+          repeated for all keypaths in K<sub>T</sub>, and the highest ratio will become the TP value of the trajectory.
+          Only if TP reaches 100%, the trajectory will be considered successful. TP considers both the flexibility of
+          the execution process and the relationships between every step. The way of using natural language and
+          execution results to evaluate also simplifies new task design and enables evaluation in real-world scenarios,
+          where writing PDDL files is impractical.
+        </p>
+        <p>
+          <b>Success End Rate</b> A fully autonomous robot should be able to actively terminate the execution at a
+          proper moment. Otherwise,
+          even if the task is already done, the robot may continue running and get stuck in an endless loop. Therefore,
+          we propose Success End Rate (SER) to evaluate whether the agent has the ability to understand its current
+          situation and reasonably determine the appropriate timing for task termination. The calculation method is as
+          follows:
+        </p>
+        <p style="text-align: center;">
+          \( SER = \frac{\text{len}(S) }{\sum_{t\in M} \text{count}_t(\text{end}) } \)
+        </p>
+        <p>
+          t represents a single trajectory and M is the set of trajectories for all tasks. count<sub>t</sub>(end) equals
+          1 if "End" is the final action of t or 0 otherwise. S is the set of successful trajectories, of which TP
+          equals 100%. Then SER is calculated as the ratio of the number of successful trajectories to the number of
+          trajectories that the agent deemed successful. Once SER reaches a certain threshold or even 100%, auxiliary
+          methods or metrics are no longer needed to calculate SR.
+        </p>
+        <p>
+          <b>Success Re-plan Rate</b> Execution failures are common cases in the real world, especially in unfamiliar
+          environments, which makes the
+          ability to quickly adjust from failures and continuously adapt to new environments a crucial skill. To measure
+          the adaptation and generalization abilities of the agent, we propose Success Re-plan Rate (SRR), which is
+          calculated as follows:
+        </p>
+        <p style="text-align: center;">
+          \( SRR = \frac{\sum_{t\in S} \text{count}_t(\text{replan}) }{\sum_{t\in M} \text{count}_t(\text{replan}) } \)
+        </p>
+        <p>
+          count<sub>t</sub>(replan) is the number of re-plans in trajectory t. Other symbol definitions are the same as
+          SER. SRR represents the effectiveness of re-planning and adaptability of the agent. When SRR reaches 100%, it
+          indicates that the agent can adapt to all failures and then successfully complete the task.
+        </p>
+
+
+
+
+
+
+
+
+
+
+
+        <h3 class="title is-4">Data Augmentation</h3>
+        <p><b>SFT Augmentation</b> Initially, all failed subtasks will be
+          skipped as they are treated as junk data for the SFT dataset. To expand the dataset, we use GPT-4o
+          to <strong>rewrite</strong> text descriptions of tasks and the analysis of each subtask for three times. This
+          approach not
+          only enhances the diversity of instructions, allowing the LLM to adapt to different user input styles, but
+          also helps to avoid introducing additional inaccuracy or inconsistency.</p>
+
+        <p><b>DPO Augmentation</b> For the i-th subtask and its input instruction I<sub>i</sub>,
+          if the execution of output O<sub>i</sub> fails but the next output O<sub>i+1</sub>
+          succeeds after re-plan, we will choose I<sub>i</sub> as the <i>prompt</i>,
+          O<sub>i</sub> as the <i>rejected</i> and O<sub>i+1</sub> as the
+          <i>chosen</i>. To obtain more data, we utilize following augmentation methods: 1) <strong>Order
+            Change:</strong> We shuffle
+          the order of successful subtasks, treating successful output
+          O<sub>i</sub> as <i>chosen</i> and O<sub>i+1</sub> as <i>rejected</i>.
+          This approach aims to help LLMs learn the logical relationships between subtasks, particularly the optimal
+          sequence of actions.
+          2) <strong>Action Change:</strong> To standardize the planner model's output and reduce responses outside the
+          action list,
+          we replace actions in subtasks with non-standard names or actions outside the available list.
+          3) <strong>Model Change:</strong> To enable the LLM to own the ability to select the appropriate low-level
+          model for a given scenario,
+          we replace the model choice with models of the same type in the model list.
+        </p>
+        <iframe src="https://huggingface.co/datasets/Dongping-Li/EMMOE-100/embed/viewer/default/SFT" frameborder="0"
+          width="100%" height="560px"></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- HomieBot -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- HomieBot Section -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <center>
+            <h2 class="title is-3">HomieBot</h2>
+          </center>
+
+          <!-- HomieBot Image and Caption -->
+          <figure>
+            <img src="images/homiebot.jpg" class="interpolation-image" alt="Interpolate start reference image"
+              style="width: 100%; height: auto;" />
+            <figcaption style="margin-top: 10px; font-size: 14px; color: #555;">
+              <b>Overview of HomieBot.</b> HomieBot leverages a hierarchical framework to handle long-horizon tasks:
+              High-Level
+              Planning decomposes tasks into manageable actions, Low-Level Execution accomplishes received actions and
+              provides
+              real-time feedback.
+            </figcaption>
+          </figure>
+
+          <!-- Explanation Content -->
+          <div class="content has-text-justified">
+            <p>
+              Following the predict-update cycle, the OPF introduces <b>OP update</b> when no measurements are available
+              for the object been tracked.
+              <b>OP update</b> consists of i) <b>dynamics module</b> to help detect
+              and model the dynamics of the object, ii) <b>occluder module</b> to
+              help decide the occluder and deal with multiple occluders, and iii)
+              <b>uncertainty module</b> to update convariance matrix. The
+              <b>feedback module</b> monitors the uncertainty of the updates by tracking
+              the spectral norm of the update covariance matrices. It can be used to change
+              the behavior of the robot or indicate to the human operator when the
+              uncertainty is above a safety threshold \(\epsilon_{safe}\).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiments -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Main Title -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Experiments</h2>
+        </div>
+      </div>
+
+      <!-- Subsections -->
+      <div class="content">
+        <h3 class="title is-4">Settings</h3>
+        <p>tbd</p>
+
+        <h3 class="title is-4">Results</h3>
+        <p>tbd</p>
+        <table cellspacing="0" cellpadding="10" style="width: 80%; margin: auto; text-align: center;">
+          <caption style="margin-bottom: 10px;">
+            Performance comparison of different models on EMMOE-100 tasks.
+          </caption>
+          <thead>
+            <tr style="background-color: #f2f2f2; line-height: 1.5;">
+              <th>Model</th>
+              <th>SR</th>
+              <th>PLWSR</th>
+              <th>TP</th>
+              <th>SRR</th>
+              <th>SER</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr style="line-height: 1.5;">
+              <td>GPT-4o</td>
+              <td>13.33</td>
+              <td>10.51</td>
+              <td>29.79</td>
+              <td>3.57</td>
+              <td>49.38</td>
+            </tr>
+            <tr style="line-height: 1.5;">
+              <td>Gemini-1.5-Pro</td>
+              <td>17.33</td>
+              <td>14.79</td>
+              <td>38.03</td>
+              <td>3.39</td>
+              <td>55.91</td>
+            </tr>
+            <tr style="line-height: 1.5;">
+              <td>Qwen2-VL-7B</td>
+              <td>1.00</td>
+              <td>0.50</td>
+              <td>16.55</td>
+              <td>0.59</td>
+              <td>25.00</td>
+            </tr>
+            <tr style="line-height: 1.5;">
+              <td>MiniCPM-V 2.6</td>
+              <td>0.67</td>
+              <td>0.57</td>
+              <td>14.45</td>
+              <td>0.06</td>
+              <td>40.00</td>
+            </tr>
+            <tr style="background-color: #f6fbfe; line-height: 1.5;">
+              <td>HomieBot-7B (SFT)</td>
+              <td>27.67</td>
+              <td>20.88</td>
+              <td>50.27</td>
+              <td><b>9.23</b></td>
+              <td>53.90</td>
+            </tr>
+            <tr style="background-color: #f6fbfe; line-height: 1.5;">
+              <td>HomieBot-7B (SFT+DPO)</td>
+              <td><b>30.30</b></td>
+              <td><b>24.66</b></td>
+              <td><b>51.39</b></td>
+              <td>8.72</td>
+              <td><b>60.81</b></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table cellspacing="0" cellpadding="10" style="width: 90%; margin: auto; text-align: center; ">
+          <caption style="margin-bottom: 10px;">
+            Performance comparison of HomieBot on the training and test split.
+          </caption>
+          <thead>
+            <tr style="background-color: #f2f2f2; line-height: 0.8;">
+              <th rowspan="2" style="vertical-align: middle;">Model</th>
+              <th colspan="5">Train split</th>
+              <th colspan="5">Test split</th>
+            </tr>
+            <tr style="background-color: #f2f2f2; line-height: 0.8;">
+              <th>SR</th>
+              <th>PLWSR</th>
+              <th>TP</th>
+              <th>SRR</th>
+              <th>SER</th>
+              <th>SR</th>
+              <th>PLWSR</th>
+              <th>TP</th>
+              <th>SRR</th>
+              <th>SER</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>HomieBot (SFT)</td>
+              <td>28.52</td>
+              <td>21.49</td>
+              <td>50.16</td>
+              <td>9.59</td>
+              <td>53.85</td>
+              <td><b>20.00</b></td>
+              <td><b>15.36</b></td>
+              <td><b>51.19</b></td>
+              <td><b>6.55</b></td>
+              <td>54.55</td>
+            </tr>
+            <tr>
+              <td>HomieBot (SFT+DPO)</td>
+              <td><b>31.84</b></td>
+              <td><b>25.82</b></td>
+              <td><b>52.29</b></td>
+              <td><b>9.69</b></td>
+              <td><b>60.71</b></td>
+              <td>16.67</td>
+              <td>14.36</td>
+              <td>43.39</td>
+              <td>3.08</td>
+              <td><b>62.50</b></td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+        <!-- Pipeline Section -->
+        <h3 class="title is-4">Visible Pipeline</h3>
+        <div class="content has-text-justified">
+          <div id="videoContainer" style="text-align: center;">
+            <!-- 任务选择框 -->
+            <select id="videoGroupSelector" onchange="loadSelectedGroup()"
+              style="font-size: 16px; padding-left: 10px; height: 36px; width: 400px; border-radius: 5px; margin-bottom: 15px; margin-right: 20px;">
+              <option value="0">fetch two sugar boxes in the fridge and put them on the brown table, if there aren't
+                enough sugar boxes in the fridge, find them elsewhere</option>
+              <option value="1">put all cracker_boxes on the tvstand to the sofa</option>
+              <option value="2">take the bowl on the table to the kitchen</option>
+            </select>
+
+            <!-- 视角选择框 -->
+            <select id="viewSelector" onchange="loadSelectedGroup()"
+              style="font-size: 16px; padding-left: 10px; height: 36px; width: 170px; border-radius: 5px; margin-bottom: 15px;">
+              <option value="0">Third-Person View</option>
+              <option value="1">First-Person View</option>
+            </select>
+
+            <div class="video-grid" id="videoGrid">
+              <!-- 视频组将在这里动态生成 -->
+            </div>
+          </div>
+        </div>
+
+        <style>
+          #videoGrid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            /* 调整视频之间的间距 */
+          }
+
+          .video-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 让视频和 caption 居中 */
+          }
+
+          .video-item video {
+            width: 300px;
+            /* 设置视频宽度 */
+            height: 300px;
+            /* 设置视频高度，确保是正方形 */
+            border-radius: 8px;
+          }
+
+          .video-caption {
+            margin-top: 5px;
+            font-size: 16px;
+            color: #555;
+            text-align: center;
+          }
+        </style>
+
+        <script>
+          const allVideos = [
+            [ // Task1
+              ["videos/demo1/video_third_trial1.mp4", "videos/demo1/video_third_trial2.mp4", "videos/demo1/video_third_trial3.mp4"], // Third-Person View
+              ["videos/demo1/video_head_trial1.mp4", "videos/demo1/video_head_trial2.mp4", "videos/demo1/video_head_trial3.mp4"]  // First-Person View
+            ],
+            [ // Task2
+              ["videos/demo2/video_third_trial1.mp4", "videos/demo2/video_third_trial2.mp4", "videos/demo2/video_third_trial3.mp4"], // Third-Person View
+              ["videos/demo2/video_head_trial1.mp4", "videos/demo2/video_head_trial2.mp4", "videos/demo2/video_head_trial3.mp4"]  // First-Person View
+            ],
+            [ // Task3
+              ["videos/demo3/video_third_trial1.mp4", "videos/demo3/video_third_trial2.mp4", "videos/demo3/video_third_trial3.mp4"], // Third-Person View
+              ["videos/demo3/video_head_trial1.mp4", "videos/demo3/video_head_trial2.mp4", "videos/demo3/video_head_trial3.mp4"]  // First-Person View
+            ]
+          ];
+
+          function loadSelectedGroup() {
+            const taskIndex = document.getElementById("videoGroupSelector").value;
+            const viewIndex = document.getElementById("viewSelector").value;
+            const selectedVideos = allVideos[taskIndex][viewIndex];
+
+            const videoGrid = document.getElementById("videoGrid");
+            videoGrid.innerHTML = ""; // 清空当前视频
+
+            // 添加视频元素和 caption 到页面
+            selectedVideos.forEach((videoSrc, index) => {
+              let videoItem = document.createElement("div");
+              videoItem.classList.add("video-item");
+
+              let videoElement = document.createElement("video");
+              videoElement.setAttribute("controls", "true");
+              let sourceElement = document.createElement("source");
+              sourceElement.setAttribute("src", videoSrc);
+              sourceElement.setAttribute("type", "video/mp4");
+              videoElement.appendChild(sourceElement);
+
+              let caption = document.createElement("div");
+              caption.classList.add("video-caption");
+              caption.innerText = `Trial ${index + 1}`; // 自动生成 caption
+
+              videoItem.appendChild(videoElement);
+              videoItem.appendChild(caption);
+              videoGrid.appendChild(videoItem);
+            });
+          }
+
+          // 初始加载默认 Task & View 的视频
+          // window.onload = loadSelectedGroup;
+        </script>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Results Section -->
+      <div class="columns is-centered">
+        <div class="column is-full-width has-text-centered">
+          <h2 class="title is-3">More Analysis and Evaluations</h2>
+
+          <!-- Results Image and Caption -->
+          <figure>
+            <img src="images/analysis.jpg" class="interpolation-image" alt="Interpolate start reference image"
+              style="width: 100%; height: auto;" />
+            <figcaption style="margin-top: 10px; font-size: 14px; color: #555;">
+              <b>Error Statistics.</b> The left and right figures depict the proportion of each error type of each
+              model in successful and failed trajectories respectively.
+              Additionally, we indicate the proportion of total execution failures next to each model's name. Due to too
+              few successful trajectories for Qwen2-VL and MiniCPM-V 2.6, their results will not be shown in the left
+              figure.
+            </figcaption>
+          </figure>
+
+          <table style="width: 100%; border-collapse: collapse; text-align: center;">
+            <caption style="margin-top: 10px;">
+              Average success rate for each type of task. The highest value of each model is highlighted in <b>bold</b>.
+            </caption>
+            <thead>
+              <tr style="background-color: #f2f2f2;">
+                <th>Model</th>
+                <th>Short-Horizon</th>
+                <th>Long-Horizon</th>
+                <th>Open-Ended</th>
+                <th>Logical</th>
+                <th>Human-Style</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>HomieBot (SFT)</td>
+                <td><b>43.75</b></td>
+                <td>24.60</td>
+                <td>18.52</td>
+                <td>34.01</td>
+                <td>25.24</td>
+              </tr>
+              <tr>
+                <td>HomieBot (SFT+DPO)</td>
+                <td>41.67</td>
+                <td><b>28.11</b></td>
+                <td>15.38</td>
+                <td><b>35.86</b></td>
+                <td><b>27.88</b></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table style="width: 90%; border-collapse: collapse; text-align: center; margin: auto;">
+            <caption style="margin-top: 10px;">
+              Results of LLE evaluations. P represents the proportion of single action errors. SR here represents an
+              average value as each skill is attempted up to three times per execution.
+            </caption>
+            <thead>
+              <tr style="background-color: #f2f2f2;">
+                <th>Metrics</th>
+                <th>Go to</th>
+                <th>Pick</th>
+                <th>Place</th>
+                <th>Open</th>
+                <th>Close</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>P</td>
+                <td>38.49</td>
+                <td>49.77</td>
+                <td>7.30</td>
+                <td>3.32</td>
+                <td>1.11</td>
+              </tr>
+              <tr>
+                <td>SR</td>
+                <td>45.32</td>
+                <td>22.45</td>
+                <td>40.97</td>
+                <td>43.13</td>
+                <td>36.45</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="container is-max-desktop">
+            <h2 class="title is-3">Case Study</h2>
+
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                <!-- Option Selection -->
+                <select id="caseStudySelector" onchange="displayContent()"
+                  style="font-size: 16px; padding-left: 10px; height: 36px; width: 400px; border-radius: 5px;">
+                  <option value="0">Case 1: Successful Trajectory</option>
+                  <option value="1">Case 2: Terrible Grounding</option>
+                  <option value="2">Case 3: Limited LLE</option>
+                  <option value="3">Case 4: Meaningless Outputs</option>
+                  <option value="4">Case 5: Solvable D1 Error</option>
+                </select>
+
+                <!-- Text Content Display -->
+                <div id="caseStudyContent" class="content has-text-justified">
+                  <textarea id="textArea" rows="10" cols="50" readonly class="textarea is-large"></textarea>
+                  <div id="explanation"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <script>
+            const caseStudyData = [
+              {
+                txtFile: "texts/case1.txt",
+                explanation: "Here we show a successful trajectory of our HomieBot (DPO version). To facilitate understanding, we convert the dialogue data into the original EMMOE data format. As shown, even if errors occur, timely adjustments can be made through feedback, ensuring the correctness of the execution process."
+              },
+              {
+                txtFile: "texts/case2.txt",
+                explanation: "Here we show a terrible grounding problem issues during the inference of GPT4-o. Due to the lengthy path, we only highlight the most critical subtask outputs and their execution results to emphasize errors (following cases are handled similarly). We can see that the ungrounded output directly prevents the process to be continued. Even after informing the model that the object doesn't exist, the issue remains unresolved. The model continues to output incorrect objects or makes mistakes again after a few steps."
+              },
+              {
+                txtFile: "texts/case3.txt",
+                explanation: "Here we show a problem issues from the limited ability of low-level models. As we can see in step7 and step8, though high-level planner makes correct plans, execution still fails due to the limited ability of low-level models, this problem occurs repeatedly during whole process and finally leads to the failue the trajectory. "
+              },
+              {
+                txtFile: "texts/case4.txt",
+                explanation: "Here we show a case of Qwen2-VL-7B generating a large amount of meaningless outputs during the inference. As we can see, even though all subtasks are successful, the agent keep circling in place without making progress. These meaningless outputs quickly consume the remaining execution steps, ultimately causing the task to fail."
+              },
+              {
+                txtFile: "texts/case5.txt",
+                explanation: "Here we show how D1 error is solvable during the inference of Gemini-1.5-Pro. As we can see in step3, after a D1 error happens, a Go to action can effectively solve it and facilitate the success of the whole trajectory."
+              }
+            ];
+
+            function displayContent() {
+              // 确保选中的值是数字
+              const selectedOption = parseInt(document.getElementById("caseStudySelector").value);
+              const contentDisplay = document.getElementById("caseStudyContent");
+              const explanationDisplay = document.getElementById("explanation");
+              const textArea = document.getElementById("textArea");
+
+              const selectedCase = caseStudyData[selectedOption];
+
+              // 从txt文件读取内容并展示
+              fetch(selectedCase.txtFile)
+                .then(response => response.text())
+                .then(text => {
+                  textArea.value = text; // 显示文本内容
+                })
+                .catch(error => {
+                  textArea.value = "无法加载内容，请稍后再试。";
+                });
+
+              // 显示解释文字
+              explanationDisplay.innerHTML = "<p>" + selectedCase.explanation + "</p>";
+            }
+
+            // 默认加载第一个选项内容
+            window.onload = function () {
+              loadSelectedGroup();  // 调用 loadSelectedGroup() 函数
+              displayContent();     // 调用 displayContent() 函数
+            };
+
+          </script>
+
+          <style>
+            /* Centering text area and explanation */
+            #textArea {
+              width: 100%;
+              font-size: 16px;
+              line-height: 1.6;
+              margin-top: 20px;
+              margin-bottom: 20px;
+              text-align: center;
+            }
+
+            #explanation {
+              text-align: center;
+              font-size: 14px;
+              margin-top: 20px;
+            }
+
+            /* Centering the select element and label */
+            .select {
+              font-size: 16px;
+              width: 100%;
+              margin-top: 20px;
+            }
+          </style>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="columns is-centered">
+      <div class="container is-max-desktop content">
+        <center>
+          <h2 class="title">BibTeX (TBD)</h2>
+        </center>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
