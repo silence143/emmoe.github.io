@@ -166,10 +166,27 @@
         <div class="column is-full-width">
           <h2 class="title is-3">Full Video</h2>
           <div class="publication-video">
-            <video controls>
+            <video class="responsive-video" controls>
               <source src="videos/paper_demo.mp4" type="video/mp4">
+              Your browser does not support the video tag.
             </video>
           </div>
+          
+          <style>
+            .publication-video {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: 20px 0;
+              width: 100%; 
+            }
+            .responsive-video {
+              width: 80%; 
+              height: auto; 
+              max-width: 100%; 
+            }
+          </style>
+          
 
         </div>
       </div>
