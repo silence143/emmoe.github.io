@@ -484,6 +484,14 @@
 
           <tbody>
             <tr style="line-height: 1.5;">
+              <td>o1</td>
+              <td>28.67</td>
+              <td>24.11</td>
+              <td>44.52</td>
+              <td><b>13.80</b></td>
+              <td>38.57</td>
+            </tr>
+            <tr style="line-height: 1.5;">
               <td>GPT-4o</td>
               <td>13.33</td>
               <td>10.51</td>
@@ -520,7 +528,7 @@
               <td>27.67</td>
               <td>20.88</td>
               <td>50.27</td>
-              <td><b>9.23</b></td>
+              <td>9.23</td>
               <td>53.90</td>
             </tr>
             <tr style="background-color: #f6fbfe; line-height: 1.5;">
@@ -590,6 +598,15 @@
         <ul>
           <li>Open-source models in
             similar size are struggling to complete EMMOE tasks without additional training.
+          </li>
+          <li>
+            o1 demonstrates excellent performance and performs the best on SRR, which suggests that o1 can better
+            leverage feedback information to make more effective replan.
+          </li>
+          <li>
+            o1 is more likely to "give up" compared with other models. After several failed attempts, o1 may think that
+            the current task is infeasible and will directly terminate task execution, while other models would continue
+            to explore. This tendency results in relatively lower SER, and also affects TP to some extent.
           </li>
           <li>The performance improvement in SER is not so obvious. The strong commonsense and reasoning capabilities of
             GPT-4o and
@@ -736,7 +753,7 @@
           simultaneously evaluate both HLP and LLE, we collect all errors occurred during experiments and conduct an
           in-depth analysis.</p>
         <figure>
-          <img src="images/analysis.jpg" class="interpolation-image" alt="Interpolate start reference image"
+          <img src="images/analysis.png" class="interpolation-image" alt="Interpolate start reference image"
             style="width: 100%; height: auto;" />
           <figcaption style="margin-top: 10px; font-size: 14px; color: #555;">
             <b>Error Statistics.</b> The left and right figures depict the proportion of each error type of each
@@ -971,21 +988,18 @@
       <div class="container is-max-desktop content">
         <h2 class="title has-text-centered">BibTeX</h2>
         <pre>
-  @misc{li2025emmoecomprehensivebenchmarkembodied,
-    title={EMMOE: A Comprehensive Benchmark for Embodied Mobile Manipulation in Open Environments}, 
-    author={Dongping Li and Tielong Cai and Tianci Tang and Wenhao Chai and Katherine Rose Driggs-Campbell and Gaoang Wang},
-    year={2025},
-    eprint={2503.08604},
-    archivePrefix={arXiv},
-    primaryClass={cs.RO},
-    url={https://arxiv.org/abs/2503.08604}
-  }
+@article{li2025emmoe,
+  title={EMMOE: A Comprehensive Benchmark for Embodied Mobile Manipulation in Open Environments},
+  author={Li, Dongping and Cai, Tielong and Tang, Tianci and Chai, Wenhao and Driggs-Campbell, Katherine Rose and Wang, Gaoang},
+  journal={arXiv preprint arXiv:2503.08604},
+  year={2025}
+}
         </pre>
       </div>
     </div>
   </section>
 
-  
+
   <footer class="footer">
     <div class="container">
       <div class="columns is-centered">
